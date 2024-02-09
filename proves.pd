@@ -1,4 +1,4 @@
-#N canvas 421 137 725 526 10;
+#N canvas 421 137 725 551 10;
 #X obj 120 60 bang;
 #X floatatom 120 120 5 0 0 0 - - -, f 5;
 #X msg 120 90 "Omar";
@@ -14,3 +14,12 @@
 #X obj 330 180 /;
 #X obj 320 90 t b b f;
 #X obj 290 90 t;
+#X obj 120 240 makenote 500;
+#X obj 120 270 select 1 2 3;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 5 float 3 black black;
+#A 0 1 2 3 4 5;
+#X coords 0 6 5 0 78 59 1;
+#X restore 120 300 graph;
+#X msg 120 370 \; array1 0 1 2 3 4 5, f 19;
+#X obj 120 410 tabread array1;
