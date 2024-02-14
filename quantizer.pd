@@ -1,4 +1,4 @@
-#N canvas -8 -8 1680 972 10;
+#N canvas 0 0 1664 956 10;
 #X obj 220 310 tgl 24 0 empty empty empty 0 -12 0 16 #fcfcfc #000000
 #000000 0 1;
 #X obj 280 360 metro;
@@ -61,7 +61,7 @@
 #X msg 950 250 200;
 #X text 780 250 control de durada;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array quantizer 12 float 7 #94f48e #808080;
+#X array quantizer 12 float 7 #94f48e #404040;
 #A 0 0 0 2 2 3 5 5 7 7 8 8 10;
 #X coords 0 12 12 0 200 140 1;
 #X restore 210 480 graph;
