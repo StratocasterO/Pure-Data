@@ -1,0 +1,62 @@
+#N canvas 292 80 998 693 16;
+#X floatatom 292 477 5 0 0 0 - - -, f 5;
+#X obj 331 398 +;
+#X obj 279 131 vsl 24 204 0 127 0 0 empty empty empty 0 -9 0 16 #fcfcfc
+#000000 #000000 0 1;
+#X text 264 103 fader;
+#X text 368 395 objecte;
+#X text 409 335 variable;
+#X obj 373 270 +;
+#X floatatom 352 336 5 0 0 0 - - -, f 5;
+#X text 444 193 constants;
+#X obj 375 79 bng 24 250 50 0 empty empty empty 0 -12 0 16 #fcfcfc
+#000000 #000000;
+#X obj 84 195 tgl 24 0 empty empty empty 0 -12 0 16 #fcfcfc #000000
+#000000 0 1;
+#X obj 375 135 t;
+#X msg 349 193 2;
+#X text 413 134 trigger (dispara bangs de dreta a esquerra);
+#X obj 607 179 cnv 24 200 100 empty empty empty 20 12 0 16 #feffc6
+#404040 0;
+#X obj 667 241 t b b b;
+#X text 123 232 metrònom (ms);
+#X text 65 168 toggle (on/off);
+#X obj 735 350 vu 24 240 empty empty -1 -12 0 16 #404040 #000000 1
+0;
+#X obj 225 592 noteout;
+#X obj 115 309 t;
+#X msg 401 194 58;
+#X obj 146 359 random 12;
+#N canvas 26 26 450 250 (subpatch) 0;
+#X array array1 8 float 3 black black;
+#A 0 -0.199987 0.288001 0.742857 -0.504001 0.00800014 0.504001 -0.128
+-0.28;
+#X coords 0 1 8 -1 200 140 1;
+#X restore 489 455 graph;
+#X obj 131 427 random 100;
+#X obj 171 503 + 27;
+#X text 276 530 nota MIDI;
+#X text 119 548 velocity;
+#X obj 413 68 cnv 24 200 50 empty empty empty 20 12 0 16 #feffc6 #404040
+0;
+#X msg 553 81 bang;
+#X text 418 82 equivalent a;
+#X obj 124 255 metro 600;
+#X text 627 189 trigger amb més sortides (bangs), f 21;
+#X connect 0 0 19 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 1;
+#X connect 9 0 11 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 11 1 21 0;
+#X connect 12 0 6 0;
+#X connect 20 0 24 0;
+#X connect 20 1 22 0;
+#X connect 21 0 6 1;
+#X connect 22 0 1 0;
+#X connect 24 0 25 0;
+#X connect 25 0 19 1;
+#X connect 31 0 20 0;
