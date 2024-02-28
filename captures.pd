@@ -1,4 +1,4 @@
-#N canvas 421 137 725 576 10;
+#N canvas 227 248 725 576 10;
 #X obj 120 60 bang;
 #X floatatom 120 120 5 0 0 0 - - -, f 5;
 #X msg 120 90 "Omar";
@@ -24,3 +24,8 @@
 #X msg 120 370 \; array1 0 1 2 3 4 5, f 19;
 #X obj 120 410 tabread array1;
 #X obj 120 440 spigot;
+#X msg 300 300 \; array1 const 0;
+#X obj 300 270 tabwrite array1;
+#X obj 300 340 timer;
+#X obj 300 370 moses 50;
+#X obj 300 240 notein;

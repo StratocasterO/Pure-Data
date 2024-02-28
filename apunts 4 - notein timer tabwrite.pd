@@ -1,0 +1,185 @@
+#N canvas 94 110 1516 760 10;
+#X obj 540 20 cnv 15 250 417 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 100 330 cnv 15 102 190 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 320 20 cnv 15 201 261 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 100 20 cnv 15 197 256 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 210 30 notein;
+#X floatatom 170 90 5 0 0 0 - - -, f 5;
+#X floatatom 210 90 5 0 0 0 - - -, f 5;
+#X floatatom 250 90 5 0 0 0 - - -, f 5;
+#X obj 140 140 t f f f f;
+#X obj 150 200 + 7;
+#X obj 230 240 noteout;
+#X obj 180 200 + 9;
+#X obj 120 200 + 3;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array pitch 100 float 3 black black;
+#A 0 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 48 50 51 57 59 60
+58 55 54 53 53 53 50 50 53 55 56 56 55 56 55 53 52 50 50 50 50 50 50
+50 50 50 48 51 55 55 53 52 52 53 50 48 48 48 48 48 48 48 48 48 48 48
+48 45 48 50 51 52 54 53 54 54 45 54 52 51 49 45 48 55 36 48 52 55 52
+55 36 48 55 52 48 36 36 48 52;
+#X coords 0 127 100 0 200 140 1;
+#X restore 810 20 graph;
+#X obj 340 30 notein;
+#X floatatom 340 70 5 0 0 0 - - -, f 5;
+#X floatatom 380 70 5 0 0 0 - - -, f 5;
+#X obj 340 250 tabwrite pitch;
+#X obj 400 170 f;
+#X obj 440 170 + 1;
+#X obj 400 200 t f f;
+#X msg 440 70 0;
+#X obj 440 40 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X text 460 40 reset;
+#X obj 380 100 sel 0;
+#X obj 440 100 t b f;
+#X text 174 104 pitch;
+#X text 214 104 vel;
+#X text 244 104 channel;
+#X obj 380 130 t b;
+#X text 100 0 notein rep notes midi;
+#X obj 230 320 cnv 15 201 260 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 250 340 notein;
+#X floatatom 250 380 5 0 0 0 - - -, f 5;
+#X floatatom 292 381 5 0 0 0 - - -, f 5;
+#X obj 250 550 tabwrite pitch;
+#X msg 340 390 0;
+#X obj 352 341 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 372 341 reset;
+#X obj 250 420 spigot;
+#X obj 320 430 f;
+#X obj 380 430 + 1;
+#X obj 380 460 % 100;
+#X text 230 300 (versió J M Comajuncosas);
+#X text 400 220 - -, f 2;
+#X text 340 90 - - - - - - - - - - - -, f 2;
+#X text 320 0 gravador de notes (només note-on);
+#X obj 120 340 notein;
+#X obj 120 430 t b b;
+#X obj 120 460 timer;
+#X floatatom 120 490 5 0 0 0 - - -, f 5;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array length 100 float 3 black black;
+#A 0 395134 738.685 1819.86 786.576 798.186 1072.47 885.261 4147.66
+579.048 693.696 462.948 426.667 661.769 364.263 179.955 337023 394.739
+294.603 396.19 293.152 602.268 534.059 291.701 458.594 370.068 882.358
+1677.64 535.51 1647.17 1110.2 750.295 606.621 833.016 1734.24 934.603
+551.474 341.043 446.984 978.141 599.365 1001.36 650.159 596.463 156.735
+140.771 155.283 132.063 1738.59 169.796 449.887 309.116 316.372 0 310.567
+0 179.955 243.81 573.243 515.193 357.007 204.626 153.832 383.129 801.088
+243.81 198.821 153.832 312.018 509.388 179.955 208.98 92.8798 107.392
+0 44.9887 0 332.336 310.567 462.948 267.029 92.8798 248.163 39.1837
+129.161 29.0249 42164.5 425.215 404.898 422.313 705.306 0 30.4762 0
+416.508 0 30.4762 0 5492.97 587.755 465.85;
+#X coords 0 20000 100 0 200 140 1;
+#X restore 810 170 graph;
+#X obj 120 380 spigot;
+#X text 100 300 cronòmetre entre nota i nota, f 18;
+#X obj 350 500 cnv 15 125 80 empty empty empty 20 12 0 14 #c0c0c0 #404040
+0;
+#X obj 360 550 tabwrite length;
+#X obj 250 450 t f b b;
+#X obj 320 460 t f f f;
+#X obj 360 510 t b b;
+#X obj 360 530 timer;
+#X msg 440 410 \; pitch const 0;
+#X msg 440 448 \; length const 0;
+#X obj 560 30 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 560 150 f;
+#X obj 600 150 + 1;
+#X obj 560 240 tabread pitch;
+#X obj 560 400 noteout;
+#X obj 660 270 tabread length;
+#X obj 560 180 t f f f;
+#X msg 590 110 0;
+#X obj 700 40 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X text 720 40 reset;
+#X obj 560 360 makenote;
+#X msg 620 300 127;
+#X obj 660 240 + 1;
+#X text 130 220 (acords);
+#X obj 560 70 metro;
+#X obj 660 300 t f f f;
+#X obj 700 190 sel 0;
+#X text 689 158 para quan una length es zero, f 16;
+#X text 540 0 reprodueix el que hi ha gravat;
+#X text 560 440 TODO: que soni també la ultima nota (ara mateix s'apaga
+immediatament si no toques una altra "dummy"), f 36;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 10 1;
+#X connect 8 0 12 0;
+#X connect 8 1 9 0;
+#X connect 8 2 11 0;
+#X connect 8 3 10 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 16 0 24 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 1;
+#X connect 20 1 19 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 0;
+#X connect 24 1 29 0;
+#X connect 25 0 18 0;
+#X connect 25 1 18 1;
+#X connect 29 0 18 0;
+#X connect 32 0 33 0;
+#X connect 32 1 34 0;
+#X connect 33 0 39 0;
+#X connect 34 0 39 1;
+#X connect 36 0 40 1;
+#X connect 37 0 36 0;
+#X connect 37 0 60 0;
+#X connect 37 0 61 0;
+#X connect 39 0 56 0;
+#X connect 40 0 57 0;
+#X connect 41 0 42 0;
+#X connect 42 0 40 1;
+#X connect 47 0 52 0;
+#X connect 47 1 52 1;
+#X connect 48 0 49 0;
+#X connect 48 1 49 1;
+#X connect 49 0 50 0;
+#X connect 52 0 48 0;
+#X connect 56 0 35 0;
+#X connect 56 1 58 0;
+#X connect 56 2 40 0;
+#X connect 57 0 35 1;
+#X connect 57 1 41 0;
+#X connect 57 2 55 1;
+#X connect 58 0 59 0;
+#X connect 58 1 59 1;
+#X connect 59 0 55 0;
+#X connect 62 0 76 0;
+#X connect 63 0 68 0;
+#X connect 64 0 63 1;
+#X connect 65 0 72 0;
+#X connect 67 0 77 0;
+#X connect 68 0 65 0;
+#X connect 68 1 74 0;
+#X connect 68 2 64 0;
+#X connect 69 0 63 1;
+#X connect 70 0 69 0;
+#X connect 70 0 73 0;
+#X connect 72 0 66 0;
+#X connect 72 1 66 1;
+#X connect 73 0 72 1;
+#X connect 74 0 67 0;
+#X connect 76 0 63 0;
+#X connect 77 0 78 0;
+#X connect 77 1 72 2;
+#X connect 77 2 76 1;
+#X connect 78 0 62 0;
+#X connect 78 0 69 0;
