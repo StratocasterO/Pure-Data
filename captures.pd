@@ -1,4 +1,4 @@
-#N canvas 227 248 725 576 10;
+#N canvas 300 111 1039 695 10;
 #X obj 120 60 bang;
 #X floatatom 120 120 5 0 0 0 - - -, f 5;
 #X msg 120 90 "Omar";
@@ -29,3 +29,5 @@
 #X obj 300 340 timer;
 #X obj 300 370 moses 50;
 #X obj 300 240 notein;
+#X obj 300 400 pipe 500;
+#X obj 300 430 until;
