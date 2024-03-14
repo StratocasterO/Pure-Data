@@ -24,7 +24,7 @@
 #X obj 530 290 tabwrite input;
 #N canvas 536 233 450 305 (subpatch) 0;
 #X array input 100 float 3 black black;
-#A 0 9 7 3 0 0 7 3 0 7 3 0 9 0 3 3 9 0 3 9 0 7 3 11 0 3 9 0 3 9 0 7
+#A 0 0 0 0 3 0 3 7 0 0 4 7 0 4 7 0 4 7 0 4 7 0 4 7 0 3 9 0 3 9 0 7
 3 0 3 0 9 0 3 3 3 3 3 3 3 11 0 11 11 0 11 0 11 0 11 0 11 0 11 0 11
 0 11 0 11 0 11 0 11 0 7 3 0 7 3 0 7 3 0 7 3 0 7 3 10 7 6 10 3 7 10
 3 10 7 3 10 7 3 3 0 7;
@@ -39,7 +39,7 @@
 #X text 230 10 notes d'una tonalitat PONDERADES;
 #N canvas 536 233 450 305 (subpatch) 0;
 #X array hist 10 float 3 black black;
-#A 0 3 0 0 6 0 0 0 0 0 1;
+#A 0 4 0 0 0 3 0 0 3 0 0;
 #X coords 0 10 10 0 200 140 1;
 #X restore 230 230 graph;
 #X obj 740 110 until;
@@ -64,6 +64,9 @@
 #X obj 740 70 t f b f;
 #X text 768 38 mida de la finestra (es pot canviar), f 21;
 #X text 730 10 actualitza l'histograma amb cada nota introduïda;
+#X text 732 383 NOTA: aquest histograma té problemes. Pels 10 primers
+valors de l'array no sap tornar als primers (no li pot restar 10 perquè
+l'array comença per 0), f 50;
 #X connect 6 0 7 0;
 #X connect 6 0 15 0;
 #X connect 6 1 7 1;
