@@ -1,4 +1,4 @@
-#N canvas 0 0 1664 956 10;
+#N canvas -8 -8 1538 787 10;
 #X obj 490 360 cnv 15 181 607 empty empty empty 20 12 0 14 #e0e0e0
 #404040 0;
 #X obj 620 520 cnv 15 295 376 empty empty empty 20 12 0 14 #cecece
@@ -27,10 +27,10 @@
 #X obj 550 290 tabwrite input;
 #N canvas 536 233 450 305 (subpatch) 0;
 #X array input 100 float 3 black black;
-#A 0 9 5 0 5 0 9 7 11 2 7 2 11 7 11 2 11 7 2 7 2 7 2 7 2 7 2 7 7 4
-7 4 0 7 0 4 7 4 0 7 4 7 0 4 0 7 4 0 7 4 0 0 7 0 4 0 7 4 0 7 7 4 0 7
-4 0 4 0 4 0 4 0 4 7 0 4 7 4 7 0 5 0 9 5 9 0 9 5 0 9 5 0 9 5 0 9 5 0
-9 5 0;
+#A 0 5 8 0 5 8 0 5 8 0 8 5 0 4 7 4 7 0 10 4 7 10 0 4 7 10 0 4 7 10
+0 4 7 10 0 4 7 10 0 5 8 0 5 8 0 5 0 7 4 0 0 7 4 0 8 5 0 8 5 5 8 0 5
+8 0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 7 0 4 7
+0 5 8 0;
 #X coords 0 11 100 0 200 140 1;
 #X restore 20 230 graph;
 #X msg 610 130 \; input const 0;
@@ -40,9 +40,9 @@
 #X text 230 10 notes d'una tonalitat PONDERADES;
 #N canvas 536 233 450 305 (subpatch) 0;
 #X array hist 12 float 3 black black;
-#A 0 10 0 0 0 8 0 0 7 0 0 0 0;
+#A 0 7 0 0 0 4 2 0 5 2 0 5 0;
 #X coords 0 10 12 0 175 140 1;
-#X restore 230 230 graph;
+#X restore 240 230 graph;
 #X obj 810 120 until;
 #X obj 810 150 f;
 #X obj 860 150 + 1;
@@ -69,10 +69,10 @@
 #X obj 650 820 t f b;
 #X obj 690 850 f;
 #X obj 650 850 +;
-#X msg 710 590 0;
+#X msg 700 590 0;
 #X obj 630 880 f;
 #X text 676 790 multiplica histograma i pesos;
-#X text 738 584 reinicia contador i acumulador, f 23;
+#X text 728 584 reinicia contador i acumulador, f 23;
 #X text 720 850 acumulador (producte escalar);
 #X text 656 880 mostra l'ultim valor;
 #X obj 500 260 t b b f;
@@ -81,9 +81,9 @@
 #X obj 630 560 t b f b;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array scores 12 float 3 black black;
-#A 0 94 30 29 24 40 71 0 73 41 32 17 24;
+#A 0 69 38 19 45 24 70 18 50 46 22 45 29;
 #X coords 0 150 12 0 175 140 1;
-#X restore 230 400 graph;
+#X restore 240 400 graph;
 #X msg 500 370 12;
 #X obj 500 430 until;
 #X obj 500 460 f;
@@ -101,8 +101,8 @@
 #X obj 570 240 t f f b f;
 #X text 462 197 només guarda la pitchclass, f 10;
 #X text 670 1010 comment;
-#X text 230 370 C C# D D# E F F# G G# A A# B;
-#X text 230 540 C C# D D# E F F# G G# A A# B;
+#X text 242 370 C C# D D# E F F# G G# A A# B;
+#X text 242 540 C C# D D# E F F# G G# A A# B;
 #X obj 740 730 % 12;
 #X obj 500 490 t b f f f;
 #X text 517 342 recorre les 12 tonalitats;
