@@ -1,0 +1,59 @@
+#N canvas -8 -8 1538 787 10;
+#X obj 100 100 cnv 15 195 195 empty empty empty 58 9 0 14 #2f2f2f #404040
+0;
+#X obj 200 110 tgl 85 0 s_b1 r_b1 empty 17 7 0 10 #dd4b3e #dd4b3e #000000
+1 1;
+#X obj 110 200 tgl 85 0 s_b3 r_b3 empty 17 7 0 10 #4b3edd #4b3edd #000000
+0 1;
+#X obj 200 200 tgl 85 0 s_b2 r_b2 empty 17 7 0 10 #3edd4b #3edd4b #000000
+1 1;
+#X obj 110 110 tgl 85 0 s_b4 r_b4 empty 17 7 0 10 #ffea37 #ffea37 #000000
+1 1;
+#X obj 310 125 t b b;
+#X obj 310 100 r s_b1;
+#X obj 310 200 s r_b1;
+#X obj 310 150 del 400;
+#X obj 310 265 t b b;
+#X obj 310 290 del 400;
+#X obj 590 125 t b b;
+#X obj 590 150 del 400;
+#X obj 590 265 t b b;
+#X obj 590 290 del 400;
+#X obj 310 240 r s_b2;
+#X obj 310 340 s r_b2;
+#X obj 590 100 r s_b3;
+#X obj 590 200 s r_b3;
+#X obj 590 240 r s_b4;
+#X obj 590 340 s r_b4;
+#X msg 590 315 color #ffea37 #ffea37 #000000;
+#X msg 310 175 color #dd4b3e #dd4b3e #000000;
+#X msg 310 315 color #3edd4b #3edd4b #000000;
+#X msg 590 175 color #4b3edd #4b3edd #000000;
+#X msg 650 290 color #fff59e #fff59e #000000;
+#X msg 370 150 color #e8867d #e8867d #000000;
+#X msg 370 290 color #7de886 #7de886 #000000;
+#X msg 650 150 color #8e86ea #8e86ea #000000;
+#X connect 5 0 8 0;
+#X connect 5 1 26 0;
+#X connect 6 0 5 0;
+#X connect 8 0 22 0;
+#X connect 9 0 10 0;
+#X connect 9 1 27 0;
+#X connect 10 0 23 0;
+#X connect 11 0 12 0;
+#X connect 11 1 28 0;
+#X connect 12 0 24 0;
+#X connect 13 0 14 0;
+#X connect 13 1 25 0;
+#X connect 14 0 21 0;
+#X connect 15 0 9 0;
+#X connect 17 0 11 0;
+#X connect 19 0 13 0;
+#X connect 21 0 20 0;
+#X connect 22 0 7 0;
+#X connect 23 0 16 0;
+#X connect 24 0 18 0;
+#X connect 25 0 20 0;
+#X connect 26 0 7 0;
+#X connect 27 0 16 0;
+#X connect 28 0 18 0;
