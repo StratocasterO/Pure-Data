@@ -1,48 +1,48 @@
-#N canvas -8 -8 1538 787 10;
-#X obj 100 100 cnv 15 195 195 empty empty empty 58 9 0 14 #2f2f2f #404040
+#N canvas 0 0 1522 772 10;
+#X obj 300 400 cnv 15 195 195 empty empty empty 58 9 0 14 #2f2f2f #404040
 0;
-#X obj 200 110 tgl 85 0 s_b1 r_b1 empty 17 7 0 10 #dd4b3e #dd4b3e #000000
+#X obj 400 410 tgl 85 0 s_b1 r_b1 empty 17 7 0 10 #dd4b3e #dd4b3e #000000
 1 1;
-#X obj 110 200 tgl 85 0 s_b3 r_b3 empty 17 7 0 10 #4b3edd #4b3edd #000000
+#X obj 310 500 tgl 85 0 s_b3 r_b3 empty 17 7 0 10 #4b3edd #4b3edd #000000
 0 1;
-#X obj 200 200 tgl 85 0 s_b2 r_b2 empty 17 7 0 10 #3edd4b #3edd4b #000000
+#X obj 400 500 tgl 85 0 s_b2 r_b2 empty 17 7 0 10 #3edd4b #3edd4b #000000
 0 1;
-#X obj 110 110 tgl 85 0 s_b4 r_b4 empty 17 7 0 10 #ffea37 #ffea37 #000000
+#X obj 310 410 tgl 85 0 s_b4 r_b4 empty 17 7 0 10 #ffea37 #ffea37 #000000
 0 1;
-#X obj 310 100 r s_b1;
-#X obj 310 200 s r_b1;
-#X obj 310 150 del 400;
-#X obj 310 290 del 400;
-#X obj 590 150 del 400;
-#X obj 590 290 del 400;
-#X obj 310 240 r s_b2;
-#X obj 310 340 s r_b2;
-#X obj 590 100 r s_b3;
-#X obj 590 200 s r_b3;
-#X obj 590 240 r s_b4;
-#X obj 590 340 s r_b4;
-#X msg 590 315 color #ffea37 #ffea37 #000000;
-#X msg 310 175 color #dd4b3e #dd4b3e #000000;
-#X msg 310 315 color #3edd4b #3edd4b #000000;
-#X msg 590 175 color #4b3edd #4b3edd #000000;
-#X msg 650 290 color #fff59e #fff59e #000000;
-#X msg 370 150 color #e8867d #e8867d #000000;
-#X msg 370 290 color #7de886 #7de886 #000000;
-#X msg 650 150 color #8e86ea #8e86ea #000000;
-#X obj 340 420 mtof;
-#X obj 340 445 phasor~;
-#X obj 340 470 *~;
-#X obj 340 505 dac~;
-#X obj 430 380 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X obj 100 100 r s_b1;
+#X obj 100 200 s r_b1;
+#X obj 100 150 del 400;
+#X obj 100 290 del 400;
+#X obj 380 150 del 400;
+#X obj 380 290 del 400;
+#X obj 100 240 r s_b2;
+#X obj 100 340 s r_b2;
+#X obj 380 100 r s_b3;
+#X obj 380 200 s r_b3;
+#X obj 380 240 r s_b4;
+#X obj 380 340 s r_b4;
+#X msg 380 315 color #ffea37 #ffea37 #000000;
+#X msg 100 175 color #dd4b3e #dd4b3e #000000;
+#X msg 100 315 color #3edd4b #3edd4b #000000;
+#X msg 380 175 color #4b3edd #4b3edd #000000;
+#X msg 440 290 color #fff59e #fff59e #000000;
+#X msg 160 150 color #e8867d #e8867d #000000;
+#X msg 160 290 color #7de886 #7de886 #000000;
+#X msg 440 150 color #8e86ea #8e86ea #000000;
+#X obj 130 420 mtof;
+#X obj 130 445 phasor~;
+#X obj 130 470 *~;
+#X obj 130 505 dac~;
+#X obj 220 380 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 310 125 t b b b;
-#X obj 590 125 t b b b;
-#X obj 310 265 t b b b;
-#X obj 590 265 t b b b;
-#X msg 370 380 64;
-#X msg 310 380 48;
-#X msg 340 380 52;
-#X msg 400 380 57;
+#X obj 100 125 t b b b;
+#X obj 380 125 t b b b;
+#X obj 100 265 t b b b;
+#X obj 380 265 t b b b;
+#X msg 160 380 64;
+#X msg 100 380 48;
+#X msg 130 380 52;
+#X msg 190 380 57;
 #X connect 5 0 30 0;
 #X connect 7 0 18 0;
 #X connect 7 0 29 0;
