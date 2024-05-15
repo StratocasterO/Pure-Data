@@ -1,0 +1,267 @@
+#N canvas 0 0 1522 772 24;
+#X obj 667 31 cnv 15 788 250 empty empty empty 20 12 0 14 #e4e4e4 #404040
+0;
+#X obj 1193 60 cnv 15 138 201 empty empty empty 20 12 0 14 #c2c2c2
+#404040 0;
+#X obj 840 60 cnv 15 340 201 empty empty empty 20 12 0 14 #c2c2c2 #404040
+0;
+#X obj 730 730 cnv 15 903 201 empty empty empty 20 12 0 14 #e4e4e4
+#404040 0;
+#X obj 530 950 cnv 15 791 264 empty empty empty 20 12 0 14 #e4e4e4
+#404040 0;
+#X text 35 22 Open Sound Control;
+#X text 34 53 Sinte;
+#X obj 130 130 phasor~;
+#X text 690 30 GUI;
+#X obj 161 1248 dac~;
+#X msg 349 62 \; pd dsp \$1;
+#X obj 349 37 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X obj 182 1171 *~;
+#X obj 215 848 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 291 287 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 245 604 *~;
+#X obj 206 645 *~;
+#X obj 167 689 +~;
+#X obj 432 177 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 35 134 noise~;
+#X msg 1090 880 connect 127.0.0.1 12345;
+#X msg 900 750 connect localhost 12345;
+#X msg 920 790 disconnect;
+#X obj 850 889 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X msg 750 420 send /cutoff \$1;
+#X obj 750 360 r cutoff;
+#X obj 432 130 key;
+#X obj 857 116 vsl 30 128 50 12000 1 1 cutoff empty Cutoff 0 -9 0 12
+#804040 #000000 #000000 11950 1;
+#X obj 240 1210 env~;
+#X obj 240 1253 - 100;
+#X msg 600 1010 disconnect;
+#X obj 648 1176 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X msg 553 973 connect localhost 12346;
+#X obj 1420 500 s vu;
+#N canvas 148 188 842 474 square 0;
+#X msg 301 57 0;
+#X obj -4 135 phasor~ 10;
+#X obj 164 129 phasor~ 20;
+#X obj 301 14 loadbang;
+#X obj 124 341 outlet~;
+#X obj -4 57 inlet;
+#X obj 170 70 * 2;
+#X obj 124 272 -~;
+#X obj 164 173 *~ 0.5;
+#X connect 0 0 1 1;
+#X connect 0 0 2 1;
+#X connect 1 0 7 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 5 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X restore 255 133 pd square;
+#X obj 420 530 udpreceive 12345;
+#X obj 420 566 unpackOSC;
+#X obj 648 1051 packOSC;
+#X obj 648 1134 udpsend;
+#X obj 1420 360 udpreceive 12346;
+#X obj 1420 408 unpackOSC;
+#X obj 1420 453 routeOSC /vu;
+#X obj 750 750 packOSC;
+#X obj 850 847 udpsend;
+#X text -30 170 waveform;
+#X text 160 90 freq;
+#X text 458 339 filter_attack;
+#X text 418 299 filter_decay;
+#X text 290 600 envmod;
+#X text 360 900 amp_attack;
+#X text 340 860 amp_decay;
+#X text 333 1273 out vol;
+#X floatatom 240 1300 5 0 0 0 - - -, f 5;
+#X text 367 22 audio on;
+#X text 666 1165 dsp net on;
+#X text 869 879 gui net on;
+#X text 451 165 note trigger;
+#X text 200 780 reso;
+#X obj 134 776 vcf~;
+#X obj 133 819 vcf~;
+#X obj 52 246 *~;
+#X obj 91 208 == 0;
+#X obj 97 284 *~;
+#X obj 139 322 *~;
+#X obj 136 246 == 1;
+#X obj 178 284 == 2;
+#X obj 90 173 t f f f;
+#X obj 290 473 vline~;
+#X obj 340 337 pack f f;
+#X msg 290 436 1 \$1 \, 0 \$2 \$1;
+#X obj 340 300 t b f;
+#X obj 290 397 list;
+#X obj 217 1067 vline~;
+#X obj 239 902 pack f f;
+#X msg 217 1032 1 \$1 \, 0 \$2 \$1;
+#X obj 260 860 t b f;
+#X obj 217 994 list;
+#X text 530 1220 NOTA: s'ha hagut d'afegir al PATH de les preferències
+la carpeta de 'mrpeach' perquè reconeixés els objectes de la llibreria
+(també es pot afegir 'mrpeach/' davant de cada objecte), f 54;
+#X text 1090 810 connecta la GUI al servidor local de UDP (un protocol
+de comunicacions), f 37;
+#X obj 920 115 vsl 30 128 1 10 0 1 reso empty Reso 0 -9 0 12 #ff0000
+#000000 #000000 2650 1;
+#X obj 780 480 r reso;
+#X msg 780 540 send /reso \$1;
+#X text 770 1020 connecta el sinte al servidor UDP (per rebre valors
+a la GUI), f 37;
+#X obj 980 115 vsl 30 128 5 5000 1 1 fa empty Attack 0 -9 0 12 #ff8000
+#000000 #000000 700 1;
+#X obj 1043 114 vsl 30 128 5 5000 1 1 fd empty Decay 0 -9 0 12 #ffff00
+#000000 #000000 1900 1;
+#X obj 1213 115 vsl 30 128 5 5000 1 1 aa empty Attack 0 -9 0 12 #00ff00
+#000000 #000000 2300 1;
+#X obj 1276 114 vsl 30 128 5 5000 1 1 ad empty Decay 0 -9 0 12 #80ff80
+#000000 #000000 5400 1;
+#X text 979 60 VCF;
+#X obj 998 362 r fa;
+#X msg 998 422 send /fa \$1;
+#X obj 1028 482 r fd;
+#X msg 1030 540 send /fd \$1;
+#X text 1233 60 VCA;
+#X text 220 690 cutoff;
+#X msg 1200 420 send /aa \$1;
+#X obj 1200 360 r aa;
+#X obj 1230 480 r ad;
+#X msg 1232 538 send /ad \$1;
+#X obj 1101 114 vsl 30 128 -5 5 0 1 mod empty Amount 0 -9 0 12 #ffffff
+#000000 #000000 2400 1;
+#X obj 820 600 r mod;
+#X msg 822 658 send /mod \$1;
+#X text 1132 106 5;
+#X text 1132 222 -5;
+#X obj 1370 60 vu 30 200 vu Vu -1 -8 0 10 #404040 #000000 1 0;
+#X msg 240 1350 send /vu \$1;
+#X obj 689 73 cnv 15 138 188 empty empty empty 20 12 0 14 #c2c2c2 #404040
+0;
+#X text 729 73 Wave;
+#X obj 710 120 vradio 40 0 1 3 wave empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 2;
+#X obj 1028 602 r wave;
+#X msg 1030 660 send /wave \$1;
+#X text 755 120 ns;
+#X text 752 163 saw;
+#X text 751 205 "sq";
+#X obj 1690 360 key;
+#X obj 1690 540 t f b;
+#X obj 1690 400 tabread keyboard;
+#X obj 1690 440 + 60;
+#X obj 1710 500 makenote 127 300;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array keyboard 127 float 3 black black;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 4 3 5 7 9 0 11 0 0 0 0 0 0 0 0 2 6 10 0 1 0 8 0 0 0 0 0;
+#X coords 0 11 127 0 200 140 1;
+#X restore 1690 710 graph;
+#X obj 1690 590 mtof;
+#X msg 1690 640 send /note \$1;
+#X obj 420 603 routeOSC /cutoff /reso /fa /fd /aa /ad /mod /wave /note
+, f 21;
+#X text 354 700 enrutador de missatges OSC;
+#X connect 7 0 62 0;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X connect 12 0 9 1;
+#X connect 12 0 28 0;
+#X connect 13 0 76 0;
+#X connect 14 0 71 0;
+#X connect 15 0 16 1;
+#X connect 16 0 17 1;
+#X connect 17 0 58 1;
+#X connect 17 0 59 1;
+#X connect 18 0 14 0;
+#X connect 18 0 13 0;
+#X connect 19 0 60 0;
+#X connect 21 0 43 0;
+#X connect 22 0 43 0;
+#X connect 24 0 42 0;
+#X connect 25 0 24 0;
+#X connect 26 0 18 0;
+#X connect 28 0 29 0;
+#X connect 29 0 52 0;
+#X connect 30 0 38 0;
+#X connect 32 0 38 0;
+#X connect 34 0 63 0;
+#X connect 35 0 36 0;
+#X connect 36 0 121 0;
+#X connect 37 0 38 0;
+#X connect 38 0 31 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 41 0 33 0;
+#X connect 42 0 43 0;
+#X connect 43 0 23 0;
+#X connect 52 0 104 0;
+#X connect 58 1 59 0;
+#X connect 59 1 12 0;
+#X connect 60 0 58 0;
+#X connect 61 0 60 1;
+#X connect 62 0 58 0;
+#X connect 63 0 58 0;
+#X connect 64 0 62 1;
+#X connect 65 0 63 1;
+#X connect 66 0 61 0;
+#X connect 66 1 64 0;
+#X connect 66 2 65 0;
+#X connect 67 0 15 0;
+#X connect 68 0 71 1;
+#X connect 69 0 67 0;
+#X connect 70 0 68 0;
+#X connect 70 1 68 1;
+#X connect 71 0 69 0;
+#X connect 72 0 12 1;
+#X connect 73 0 76 1;
+#X connect 74 0 72 0;
+#X connect 75 0 73 0;
+#X connect 75 1 73 1;
+#X connect 76 0 74 0;
+#X connect 80 0 81 0;
+#X connect 81 0 42 0;
+#X connect 88 0 89 0;
+#X connect 89 0 42 0;
+#X connect 90 0 91 0;
+#X connect 91 0 42 0;
+#X connect 94 0 42 0;
+#X connect 95 0 94 0;
+#X connect 96 0 97 0;
+#X connect 97 0 42 0;
+#X connect 99 0 100 0;
+#X connect 100 0 42 0;
+#X connect 104 0 37 0;
+#X connect 108 0 109 0;
+#X connect 109 0 42 0;
+#X connect 113 0 115 0;
+#X connect 114 0 119 0;
+#X connect 115 0 116 0;
+#X connect 116 0 117 0;
+#X connect 116 0 114 0;
+#X connect 119 0 120 0;
+#X connect 120 0 42 0;
+#X connect 121 0 16 0;
+#X connect 121 0 17 0;
+#X connect 121 1 58 2;
+#X connect 121 1 59 2;
+#X connect 121 2 68 0;
+#X connect 121 3 70 0;
+#X connect 121 4 73 0;
+#X connect 121 5 75 0;
+#X connect 121 6 15 1;
+#X connect 121 7 66 0;
+#X connect 121 8 7 0;
+#X connect 121 8 34 0;
