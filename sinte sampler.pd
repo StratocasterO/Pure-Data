@@ -1,0 +1,316 @@
+#N canvas 71 92 1522 772 10;
+#X obj 630 474 cnv 15 165 43 empty empty empty 20 12 0 14 #ffff80 #404040
+0;
+#X obj 383 406 cnv 15 356 61 empty empty empty 20 12 0 14 #ffb9b9 #404040
+0;
+#X obj 1090 -81 cnv 15 126 39 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 1186 135 cnv 15 50 104 empty empty empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 1096 65 cnv 15 140 70 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 740 70 cnv 15 100 177 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 960 20 cnv 15 118 41 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 740 20 cnv 15 118 41 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 870 20 cnv 15 84 103 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 416 -60 cnv 15 78 118 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 510 4 cnv 15 214 258 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 290 70 cnv 15 204 193 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 380 240 dac~;
+#N canvas 536 234 450 303 nyigunyigu~ 0;
+#X obj 40 110 osc~;
+#X obj 90 80 inlet;
+#X obj 40 140 outlet~;
+#X obj 40 80 inlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 3 0 0 0;
+#X restore 380 100 pd nyigunyigu~;
+#X msg 426 10 \; pd dsp \$1;
+#X obj 426 -30 tgl 23 0 empty audio empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X text 400 80 oscil·lador;
+#X obj 380 170 *~ 0.1;
+#X obj 564 43 vsl 15 128 0.01 1 1 1 empty empty empty 0 -9 0 10 #fcfcfc
+#ff0000 #000000 6600 1;
+#X obj 534 43 vsl 15 128 40 400 0 1 empty empty empty 0 -9 0 10 #fcfcfc
+#ff0000 #000000 5300 1;
+#X obj 300 100 noise~;
+#X obj 300 140 *~ 0.1;
+#X obj 654 43 vsl 15 128 0.01 1 1 1 empty empty empty 0 -9 0 10 #fcfcfc
+#0000ff #000000 8800 1;
+#X text 561 23 vol;
+#X text 524 23 pitch;
+#X text 644 23 noice;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array sample 59268 float 4 black black;
+#X coords 0 1 59267 -1 259 120 1;
+#X restore 460 276 graph;
+#X obj 750 -30 soundfiler;
+#X obj 750 30 bng 22 250 50 0 empty sample play\ sample 24 13 0 10
+#fcfcfc #000000 #000000;
+#X obj 830 280 tabplay~ sample;
+#X obj 1150 490 dac~;
+#X obj 970 30 tgl 23 0 empty accel empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 970 140 metro 300;
+#X obj 970 170 t b b;
+#X obj 1000 210 f;
+#X obj 1030 210 * 0.9;
+#X obj 970 110 t f b;
+#X text 994 37 accelerando;
+#X msg 1040 140 500;
+#X obj 900 370 f;
+#X obj 930 370 + 1;
+#X obj 800 100 tgl 23 0 empty groove empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X obj 840 460 *~, f 4;
+#X msg 900 430 1 \, 0 200;
+#X obj 900 460 line~;
+#X msg 1100 220 44100;
+#X obj 1100 250 /;
+#X obj 1100 190 bng 22 250 50 0 empty empty empty 24 13 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 1100 280 5 0 0 0 - - -, f 5;
+#X obj 1100 310 *;
+#X obj 1100 340 phasor~;
+#X obj 1100 400 tabread~ sample;
+#X obj 1195 75 vsl 15 128 -5 5 0 1 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 6150 1;
+#X obj 1150 310 t b f;
+#X msg 1150 280 0;
+#X obj 1154 185 bng 22 250 50 0 empty empty empty 24 13 0 10 #fcfcfc
+#000000 #000000;
+#X obj 960 370 % 4;
+#X floatatom 1195 215 5 0 0 0 - - -, f 5;
+#X text 1180 490 output;
+#X obj 810 380 random 59268;
+#X obj 1100 370 *~ 59268;
+#X obj 810 360 metro 250;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array hihat 10418 float 4 black black;
+#X coords 0 1 10417 -1 149 120 1;
+#X restore 300 276 graph;
+#X obj 510 -30 soundfiler;
+#X obj 950 500 tabplay~ hihat;
+#X obj 900 400 sel 0 1 2 3;
+#X obj 594 43 vsl 15 128 0.1 10 1 1 empty empty empty 0 -9 0 10 #fcfcfc
+#ff0000 #000000 10650 1;
+#X obj 440 140 osc~;
+#X obj 380 140 *~;
+#X obj 330 180 osc~;
+#X obj 300 180 *~;
+#X obj 684 43 vsl 15 128 0.1 10 1 1 empty empty empty 0 -9 0 10 #fcfcfc
+#0000ff #000000 2100 1;
+#X text 590 23 LFO;
+#X text 682 23 LFO;
+#X text 416 -60 audio ON-OFF;
+#X floatatom 1000 250 5 0 0 0 - - -, f 5;
+#X obj 300 210 spigot~;
+#X obj 380 210 spigot~;
+#X obj 534 204 tgl 23 0 empty drone empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X obj 673 204 tgl 23 0 empty noise empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X text 559 207 drone ON-OFF noice;
+#X obj 970 460 *~, f 4;
+#X obj 1020 460 line~;
+#X obj 970 430 noise~;
+#X obj 840 430 osc~ 50;
+#X text 1020 410 caixa;
+#X obj 750 100 vsl 15 128 100 350 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 8400 1;
+#X obj 750 390 -;
+#X obj 750 360 t 500 f;
+#X floatatom 1021 99 7 0 0 0 - - -, f 7;
+#X msg 510 -60 read -resize ./audios/hihat.wav hihat;
+#X msg 750 -60 read -resize ./audios/alemany.wav sample;
+#X obj 510 -90 loadbang;
+#X msg 860 190 22050 2000;
+#X obj 880 50 bng 22 250 50 0 empty n1 empty 24 13 0 10 #fcfcfc #000000
+#000000;
+#X obj 920 90 bng 22 250 50 0 empty n4 empty 24 13 0 10 #fcfcfc #000000
+#000000;
+#X obj 880 90 bng 22 250 50 0 empty n3 empty 24 13 0 10 #fcfcfc #000000
+#000000;
+#X obj 920 50 bng 22 250 50 0 empty n2 empty 24 13 0 10 #fcfcfc #000000
+#000000;
+#X text 870 20 drum machine!;
+#X msg 880 210 35000 2000;
+#X msg 900 230 45000 2000;
+#X msg 920 250 4000 2000;
+#X text 803 430 bombo;
+#X text 1010 80 sample size;
+#X obj 1100 -33 openpanel;
+#X obj 1100 -71 bng 22 250 50 0 empty load load\ sample 28 12 0 10
+#fcfcfc #000000 #000000;
+#X obj 1100 20 soundfiler;
+#X msg 1100 -10 read -resize \$1 sample;
+#X obj 1000 280 < 50;
+#X obj 1040 280 sel 1;
+#X msg 1020 430 1 \, 0 120;
+#X text 740 70 groove generator;
+#X text 767 219 speed;
+#X obj 300 420 key;
+#X obj 300 510 s audio;
+#X floatatom 330 420 5 0 0 0 - - -, f 5;
+#X obj 310 530 s drone;
+#X obj 350 510 s noise;
+#X obj 400 510 s sample;
+#X obj 420 530 s n1;
+#X obj 450 530 s n2;
+#X obj 480 530 s n3;
+#X obj 510 530 s n4;
+#X obj 360 530 s groove;
+#X text 450 -30 [A];
+#X text 536 230 [D];
+#X text 674 230 [N];
+#X text 804 123 [G];
+#X text 886 73 [1-4];
+#X text 807 27 [S];
+#X text 997 23 [C];
+#X obj 500 510 s accel;
+#X obj 540 530 s load;
+#X obj 1105 95 tgl 23 0 empty varia empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 1100 160 sel 1 0;
+#X text 1100 70 varia-speed;
+#X text 1131 -75 [L];
+#X text 1135 95 [V];
+#X obj 300 480 sel 97 100 110 103 115 49 50 51 52 99 108 118;
+#X obj 550 510 s varia;
+#X msg 1130 250 0.5;
+#X text 390 412 Pots controlar el SINTE SAMPLER amb el teu teclat!
+, f 53;
+#X text 410 432 Pitja les tecles que veus al costat dels botons [X]
+per activar els diferents sons!, f 52;
+#X msg 810 400 \$1 7500;
+#X text 640 481 PROVA-HO AMB ELS TEUS PROPIS SAMPLES!!!, f 22;
+#X connect 13 0 68 0;
+#X connect 15 0 14 0;
+#X connect 17 0 77 0;
+#X connect 18 0 17 1;
+#X connect 19 0 13 0;
+#X connect 20 0 21 0;
+#X connect 21 0 70 0;
+#X connect 22 0 21 1;
+#X connect 27 0 89 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 29 0 30 1;
+#X connect 31 0 36 0;
+#X connect 32 0 33 0;
+#X connect 33 0 29 0;
+#X connect 33 1 34 0;
+#X connect 34 0 35 0;
+#X connect 34 0 75 0;
+#X connect 35 0 34 1;
+#X connect 35 0 32 1;
+#X connect 36 0 32 0;
+#X connect 36 1 38 0;
+#X connect 38 0 34 1;
+#X connect 39 0 40 0;
+#X connect 39 0 65 0;
+#X connect 40 0 56 0;
+#X connect 41 0 61 0;
+#X connect 42 0 30 0;
+#X connect 42 0 30 1;
+#X connect 43 0 44 0;
+#X connect 44 0 42 1;
+#X connect 45 0 46 0;
+#X connect 46 0 48 0;
+#X connect 47 0 140 0;
+#X connect 47 0 45 0;
+#X connect 48 0 49 0;
+#X connect 49 0 50 0;
+#X connect 50 0 60 0;
+#X connect 51 0 30 0;
+#X connect 51 0 30 1;
+#X connect 52 0 53 0;
+#X connect 52 0 57 0;
+#X connect 53 0 49 0;
+#X connect 53 1 49 1;
+#X connect 54 0 49 1;
+#X connect 54 0 49 0;
+#X connect 55 0 54 0;
+#X connect 56 0 39 1;
+#X connect 59 0 143 0;
+#X connect 60 0 51 0;
+#X connect 61 0 39 0;
+#X connect 61 0 59 0;
+#X connect 64 0 30 0;
+#X connect 64 0 30 1;
+#X connect 65 0 43 0;
+#X connect 65 1 64 0;
+#X connect 65 2 110 0;
+#X connect 65 3 64 0;
+#X connect 66 0 67 0;
+#X connect 67 0 68 1;
+#X connect 68 0 17 0;
+#X connect 69 0 70 1;
+#X connect 70 0 76 0;
+#X connect 71 0 69 0;
+#X connect 75 0 108 0;
+#X connect 76 1 12 1;
+#X connect 76 1 12 0;
+#X connect 77 1 12 0;
+#X connect 77 1 12 1;
+#X connect 78 0 77 1;
+#X connect 79 0 76 1;
+#X connect 81 0 30 0;
+#X connect 81 0 30 1;
+#X connect 82 0 81 1;
+#X connect 83 0 81 0;
+#X connect 84 0 42 0;
+#X connect 86 0 88 0;
+#X connect 87 0 61 1;
+#X connect 88 0 87 0;
+#X connect 88 1 87 1;
+#X connect 89 0 59 1;
+#X connect 89 0 46 1;
+#X connect 89 0 60 1;
+#X connect 90 0 63 0;
+#X connect 91 0 27 0;
+#X connect 92 0 90 0;
+#X connect 92 0 91 0;
+#X connect 93 0 29 0;
+#X connect 94 0 93 0;
+#X connect 95 0 101 0;
+#X connect 96 0 99 0;
+#X connect 97 0 100 0;
+#X connect 99 0 29 0;
+#X connect 100 0 29 0;
+#X connect 101 0 29 0;
+#X connect 104 0 107 0;
+#X connect 105 0 104 0;
+#X connect 106 0 89 0;
+#X connect 107 0 106 0;
+#X connect 108 0 109 0;
+#X connect 109 0 31 0;
+#X connect 110 0 82 0;
+#X connect 113 0 115 0;
+#X connect 113 0 138 0;
+#X connect 133 0 134 0;
+#X connect 134 0 47 0;
+#X connect 134 1 55 0;
+#X connect 138 0 114 0;
+#X connect 138 1 116 0;
+#X connect 138 2 117 0;
+#X connect 138 3 123 0;
+#X connect 138 4 118 0;
+#X connect 138 5 119 0;
+#X connect 138 6 120 0;
+#X connect 138 7 121 0;
+#X connect 138 8 122 0;
+#X connect 138 9 131 0;
+#X connect 138 10 132 0;
+#X connect 138 11 139 0;
+#X connect 140 0 49 1;
+#X connect 143 0 29 0;
